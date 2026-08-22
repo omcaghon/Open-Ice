@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Twin Cities Open Hockey Finder</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏒</text></svg>">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <h1>🏒 Twin Cities Open Hockey Finder</h1>
+  <p class="tagline">Public ice where sticks &amp; pucks are welcome — ranked by price and rink quality</p>
+</header>
+
+<div class="controls">
+  <input id="search" type="search" placeholder="Search rink or city…" autocomplete="off">
+  <select id="sort" title="Rank by">
+    <option value="priceAsc">💰 Price: cheapest first</option>
+    <option value="priceDesc">💰 Price: highest first</option>
+    <option value="qualDesc">⭐ Quality: best first</option>
+    <option value="qualAsc">⭐ Quality: lowest first</option>
+    <option value="nextSoon">🕐 Next session soonest</option>
+    <option value="az">🔤 Name A–Z</option>
+  </select>
+  <select id="typeFilter" title="Session type">
+    <option value="all">Any session type</option>
+    <option value="Open Hockey">Open Hockey</option>
+    <option value="Stick &amp; Puck">Stick &amp; Puck</option>
+    <option value="Pond Hockey">Pond / Outdoor</option>
+  </select>
+  <div class="view-toggle">
+    <button id="btnList" class="active" type="button">List</button>
+    <button id="btnMap" type="button">Map</button>
+  </div>
+</div>
+
+<div id="dayChips" class="day-chips"></div>
+
+<p id="stats" class="stats"></p>
+
+<main id="listView"></main>
+<section id="mapView" hidden><div id="map"></div></section>
+
+<div id="emptyState" class="empty" hidden>No rinks match your filters. Try clearing the search or day filter.</div>
+
+<footer>
+  <p><strong>Schedules &amp; prices change seasonally.</strong> This list covers open hockey / stick &amp; puck sessions (sticks and pucks allowed) — not public open skate. Always verify times with each arena before you go.</p>
+  <p>Data last reviewed: August 2026 · Community project — edit <code>data.js</code> to update.</p>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
